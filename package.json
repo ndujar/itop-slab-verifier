@@ -4,9 +4,21 @@
   "private": true,
   "dependencies": {
     "axios": "^0.19.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "^3.0.1"
+    "@fortawesome/fontawesome-free": "6.1.1",
+    "bootstrap": "4.5.3",
+    "chart.js": "3.4.1",
+    "classnames": "2.3.1",
+    "perfect-scrollbar": "1.5.5",
+    "prop-types": "15.8.1",
+    "react": ">=16.8.0",
+    "react-chartjs-2": "3.0.4",
+    "react-dom": ">=16.8.0",
+    "react-notification-alert": "0.0.13",
+    "react-router-dom": "5.2.0",
+    "react-scripts": "^5.0.1",
+    "reactstrap": "8.7.1",
+    "sass": "1.53.0",
+    "makerjs": "^0.17.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -19,6 +31,10 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "browserslist": [
     ">0.2%",
