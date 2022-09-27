@@ -28,7 +28,6 @@ class CrossSection extends Component {
 		const scale = 0.4 * canvasWidth / Svig;
 		const margin = 0.02 * canvasHeight;
 		const offsetY = 0.15 * canvasHeight;
-		const offsetX = 0.02 * canvasWidth;
 		const centerX = canvasWidth * 0.5;
 		const centerY = canvasHeight * 0.5;
 
