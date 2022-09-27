@@ -28,7 +28,8 @@ import Verifications from "../components/Forms/Verifications";
 import {
   Card,
   Row,
-  Col
+  Col,
+  Button
 } from "reactstrap";
 
 class Dashboard extends Component {
@@ -62,7 +63,13 @@ class Dashboard extends Component {
     this.childToParent = this.childToParent.bind(this);
   }
 
- 
+  clickVerify = async (e) => {
+    const response = await fetch('/.netlify/functions/verify').then(
+    response => response.json()
+    
+  )
+  console.log(response)
+}
 
   childToParent(e) {
     this.setState({
@@ -127,7 +134,9 @@ class Dashboard extends Component {
                       gammaC={this.state.gammaC}
                       gammaM={this.state.gammaM}
                       gammaS={this.state.gammaS}
-                      childToParent={this.childToParent}/>                
+                      childToParent={this.childToParent}/>   
+                  <Button onClick={this.clickVerify} >Verify</Button>
+                  
               </Card>
             </Col>
 
