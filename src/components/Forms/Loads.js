@@ -34,7 +34,7 @@ class Loads extends Component {
                   <CardTitle tag="h2">Peso propio</CardTitle>
                   <Row>
                     <label>
-                      Pforjado
+                      Pforjado (kN/m2)
                       <Input
                         name="Pforjado"
                         defaultValue={this.props.Pforjado}
@@ -47,7 +47,7 @@ class Loads extends Component {
                 <Col>
                   <CardTitle tag="h2">Cargas muertas</CardTitle>   
                     <label>
-                      Pcm
+                      Pcm (kN/m2)
                       <Input
                         name="Pcm"
                         defaultValue={this.props.Pcm}
@@ -60,7 +60,7 @@ class Loads extends Component {
                   <CardTitle tag="h2">Uso</CardTitle>
                     <Row>
                       <label>
-                        Puso
+                        Puso (kN/m2)
                         <Input
                           name="Puso"
                           defaultValue={this.props.Puso}

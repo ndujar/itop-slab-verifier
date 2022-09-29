@@ -40,34 +40,35 @@ class Dashboard extends Component {
       fck: 30,
       fyk: 500,
       ClaseMadera: "C20",
-      Ecc: 5,
-      Lvig: 400,
+      ClaseServicio: "1",
+      Ecc: 6,
+      Lvig: 515,
       Bvig: 15,
-      Hvig: 25,
-      Svig: 60,
-      Dcon: 25,
-      Smin: 100,
-      Smax: 110,
-      Hcon: 100,
-      Pcon: 50,
-      Pforjado: 100,
-      Pcm: 100,
-      Puso: 200,
+      Hvig: 20,
+      Svig: 65,
+      Dcon: 12,
+      Smin: 50,
+      Smax: 100,
+      Hcon: 50,
+      Pcon: 100,
+      Pforjado: 1.5,
+      Pcm: 1.5,
+      Puso: 2,
       gammaG: 1.35,
       gammaQ: 1.5,
       gammaV: 1.25,
       gammaC: 1.5,
       gammaM: 1.3,
-      gammaS: 1.25
+      gammaS: 1.1
     }
     this.childToParent = this.childToParent.bind(this);
   }
 
   clickVerify = async (e) => {
-    const response = await fetch('/.netlify/functions/verify').then(
+    console.log('State:', this.state)
+    const response = await fetch('/.netlify/functions/verify?' + new URLSearchParams(this.state)).then(
     response => response.json()
-    
-  )
+    )
   console.log(response)
 }
 
@@ -89,6 +90,7 @@ class Dashboard extends Component {
                       fck={this.state.fck}
                       fyk={this.state.fyk}
                       ClaseMadera={this.state.ClaseMadera}
+                      ClaseServicio={this.state.ClaseServicio}
                       childToParent={this.childToParent}/>                
               </Card>
        

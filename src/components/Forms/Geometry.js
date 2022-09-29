@@ -33,31 +33,29 @@ class Geometry extends Component {
               <Col>
                 <CardTitle tag="h2">Forjado</CardTitle>   
                   <label>
-                  Espesor Capa Compresion (Ecc)
+                  Espesor Capa Compresión (cm)
                   <Input
                     type='number'
                     name="Ecc"
                     defaultValue={this.props.Ecc}
                     onChange={this.onInputchange}
                   />
-                  </label>  
+                  </label>
+                    <label>
+                    Longitud vigas (cm)
+                    <Input
+                      name="Lvig"
+                      defaultValue={this.props.Lvig}
+                      type="number"
+                      onChange={this.onInputchange}
+                    />
+                    </label>
               </Col>
               <Col>
                 <CardTitle tag="h2">Viguetas</CardTitle>
                 <Row>
                   <label>
-                  Longitud (L)
-                  <Input
-                    name="Lvig"
-                    defaultValue={this.props.Lvig}
-                    type="number"
-                    onChange={this.onInputchange}
-                  />
-                  </label>
-                </Row>
-                <Row>
-                  <label>
-                  Base (B)
+                  Base viguetas (cm)
                   <Input
                     name="Bvig"
                     defaultValue={this.props.Bvig}
@@ -68,7 +66,7 @@ class Geometry extends Component {
                 </Row>
                 <Row>
                   <label>
-                  Altura (H)
+                  Altura viguetas (cm)
                   <Input
                     name="Hvig"
                     defaultValue={this.props.Hvig}
@@ -79,7 +77,7 @@ class Geometry extends Component {
                 </Row>
                 <Row>
                   <label>
-                  Separacion (S)
+                  Separación entre viguetas (cm)
                   <Input
                     name="Svig"
                     defaultValue={this.props.Svig}
@@ -93,7 +91,7 @@ class Geometry extends Component {
                 <CardTitle tag="h2">Pernos</CardTitle>  
                   <Row> 
                     <label>
-                    Diámetro Conectores (DCon)
+                    Diámetro Conectores (mm)
                     <Input
                       name="Dcon"
                       defaultValue={this.props.Dcon}
@@ -104,7 +102,7 @@ class Geometry extends Component {
                   </Row>
                   <Row>
                     <label>
-                    Separación en los extremos (Smin)
+                    Separación en los extremos (mm)
                     <Input
                       name="Smin"
                       defaultValue={this.props.Smin}
@@ -115,7 +113,7 @@ class Geometry extends Component {
                   </Row>
                   <Row>
                     <label>
-                    Separación en el centro (Smax)
+                    Separación en el centro (mm)
                     <Input
                       name="Smax"
                       defaultValue={this.props.Smax}
@@ -126,7 +124,7 @@ class Geometry extends Component {
                   </Row>
                   <Row>
                     <label>
-                    Altura (Hcon)
+                    Longitud (mm)
                     <Input
                       name="Hcon"
                       defaultValue={this.props.Hcon}
@@ -137,7 +135,7 @@ class Geometry extends Component {
                   </Row>
                   <Row>
                     <label>
-                    Profundidad (Pcon)
+                    Profundidad (mm)
                     <Input
                       name="Pcon"
                       defaultValue={this.props.Pcon}

@@ -31,7 +31,7 @@ class Safety extends Component {
 
               <Row>
                 <Col>
-                  <CardTitle tag="h2">Mayoracion</CardTitle>
+                  <CardTitle tag="h2">Mayoración</CardTitle>
                   <Row>
                     <label>
                       Acciones Permanentes
@@ -56,7 +56,7 @@ class Safety extends Component {
                   </Row>
                 </Col>
                 <Col>
-                  <CardTitle tag="h2">Minoracion</CardTitle>   
+                  <CardTitle tag="h2">Minoración</CardTitle>   
                   <Row>
                     <label>
                       Elementos de union
@@ -70,7 +70,7 @@ class Safety extends Component {
                   </Row>
                   <Row>
                     <label>
-                      Hormigon
+                      Hormigón
                       <Input
                         name="gammaC"
                         defaultValue={this.props.gammaC}

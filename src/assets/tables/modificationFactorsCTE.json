@@ -1,0 +1,29 @@
+{
+    "1":{
+        "kmodp": 0.6,
+        "kmod1":0.7,
+        "kmodm": 0.8,
+        "kmodc": 0.9,
+        "kmodi": 1.1,
+        "kdefperm":0.6,
+        "kdefmed": 0.25        
+    },
+    "2":{
+        "kmodp": 0.6,
+        "kmod1":0.7,
+        "kmodm": 0.8,
+        "kmodc": 0.9,
+        "kmodi": 1.1,
+        "kdefperm":0.8,
+        "kdefmed": 0.25
+    },
+    "3":{
+        "kmodp": 0.5,
+        "kmod1":0.55,
+        "kmodm": 0.65,
+        "kmodc": 0.7,
+        "kmodi": 0.9,
+        "kdefperm":2,
+        "kdefmed": 0.75
+    }
+}

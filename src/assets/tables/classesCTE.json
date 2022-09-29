@@ -10,8 +10,8 @@
       "E0k": 4.7,
       "E90medio": 0.23,
       "Gmedio": 0.44,
-      "gammak": 290,
-      "gammamedio": 350
+      "rok": 290,
+      "romedio": 350
     },
     "C16": {
       "fmk": 16,
@@ -24,8 +24,8 @@
       "E0k": 5.4,
       "E90medio": 0.27,
       "Gmedio": 0.5,
-      "gammak": 310,
-      "gammamedio": 370
+      "rok": 310,
+      "romedio": 370
     },
     "C18": {
       "fmk": 18,
@@ -38,8 +38,8 @@
       "E0k": 6,
       "E90medio": 0.3,
       "Gmedio": 0.56,
-      "gammak": 320,
-      "gammamedio": 380
+      "rok": 320,
+      "romedio": 380
     },
     "C20": {
       "fmk": 20,
@@ -52,8 +52,8 @@
       "E0k": 6.4,
       "E90medio": 0.32,
       "Gmedio": 0.59,
-      "gammak": 330,
-      "gammamedio": 390
+      "rok": 330,
+      "romedio": 390
     },
     "C22": {
       "fmk": 22,
@@ -66,8 +66,8 @@
       "E0k": 6.7,
       "E90medio": 0.33,
       "Gmedio": 0.63,
-      "gammak": 340,
-      "gammamedio": 410
+      "rok": 340,
+      "romedio": 410
     },
     "C24": {
       "fmk": 24,
@@ -80,8 +80,8 @@
       "E0k": 7.4,
       "E90medio": 0.37,
       "Gmedio": 0.69,
-      "gammak": 350,
-      "gammamedio": 420
+      "rok": 350,
+      "romedio": 420
     },
     "C27": {
       "fmk": 27,
@@ -94,8 +94,8 @@
       "E0k": 7.7,
       "E90medio": 0.38,
       "Gmedio": 0.72,
-      "gammak": 370,
-      "gammamedio": 450
+      "rok": 370,
+      "romedio": 450
     },
     "C30": {
       "fmk": 30,
@@ -108,8 +108,8 @@
       "E0k": 8,
       "E90medio": 0.4,
       "Gmedio": 0.75,
-      "gammak": 380,
-      "gammamedio": 460
+      "rok": 380,
+      "romedio": 460
     },
     "C35": {
       "fmk": 35,
@@ -122,8 +122,8 @@
       "E0k": 8.7,
       "E90medio": 0.43,
       "Gmedio": 0.81,
-      "gammak": 400,
-      "gammamedio": 480
+      "rok": 400,
+      "romedio": 480
     },
     "C40": {
       "fmk": 40,
@@ -136,8 +136,8 @@
       "E0k": 9.4,
       "E90medio": 0.47,
       "Gmedio": 0.88,
-      "gammak": 420,
-      "gammamedio": 500
+      "rok": 420,
+      "romedio": 500
     },
     "C45": {
       "fmk": 45,
@@ -150,8 +150,8 @@
       "E0k": 10,
       "E90medio": 0.5,
       "Gmedio": 0.94,
-      "gammak": 440,
-      "gammamedio": 520
+      "rok": 440,
+      "romedio": 520
     },
     "C50": {
       "fmk": 50,
@@ -164,8 +164,8 @@
       "E0k": 10.7,
       "E90medio": 0.53,
       "Gmedio": 1,
-      "gammak": 460,
-      "gammamedio": 550
+      "rok": 460,
+      "romedio": 550
     },
     "D18": {
       "fmk": 18,
@@ -178,8 +178,8 @@
       "E0k": 8.4,
       "E90medio": 0.67,
       "Gmedio": 0.63,
-      "gammak": 500,
-      "gammamedio": 610
+      "rok": 500,
+      "romedio": 610
     },
     "D24": {
       "fmk": 24,
@@ -192,8 +192,8 @@
       "E0k": 9.2,
       "E90medio": 0.73,
       "Gmedio": 0.69,
-      "gammak": 520,
-      "gammamedio": 630
+      "rok": 520,
+      "romedio": 630
     },
     "D30": {
       "fmk": 30,
@@ -206,8 +206,8 @@
       "E0k": 10.1,
       "E90medio": 0.8,
       "Gmedio": 0.75,
-      "gammak": 530,
-      "gammamedio": 640
+      "rok": 530,
+      "romedio": 640
     },
     "D35": {
       "fmk": 35,
@@ -220,8 +220,8 @@
       "E0k": 10.1,
       "E90medio": 0.8,
       "Gmedio": 75,
-      "gammak": 540,
-      "gammamedio": 650
+      "rok": 540,
+      "romedio": 650
     },
     "D40": {
       "fmk": 40,
@@ -234,8 +234,8 @@
       "E0k": 10.9,
       "E90medio": 0.86,
       "Gmedio": 0.81,
-      "gammak": 550,
-      "gammamedio": 660
+      "rok": 550,
+      "romedio": 660
     },
     "D50": {
       "fmk": 50,
@@ -248,8 +248,8 @@
       "E0k": 11.8,
       "E90medio": 0.93,
       "Gmedio": 0.88,
-      "gammak": 620,
-      "gammamedio": 750
+      "rok": 620,
+      "romedio": 750
     },
     "D60": {
       "fmk": 60,
@@ -262,8 +262,8 @@
       "E0k": 14.3,
       "E90medio": 1.13,
       "Gmedio": 1.06,
-      "gammak": 700,
-      "gammamedio": 840
+      "rok": 700,
+      "romedio": 840
     },
     "D70": {
       "fmk": 70,
@@ -276,111 +276,111 @@
       "E0k": 16.8,
       "E90medio": 1.33,
       "Gmedio": 1.25,
-      "gammak": 900,
-      "gammamedio": 1080
+      "rok": 900,
+      "romedio": 1080
     },
     "GL24h": {
-      "fmgk": 24,
-      "ft0gk": 16.5,
-      "ft90gk": 0.4,
-      "fc0gk": 24,
-      "fc90gk": 2.7,
-      "fvgk": 2.7,
-      "E0gmedio": 11.6,
-      "E0gk": 9.4,
-      "E90gmedio": 0.39,
-      "Ggmedio": 0.72,
-      "gammak": 380
+      "fmk": 24,
+      "ft0k": 16.5,
+      "ft90k": 0.4,
+      "fc0k": 24,
+      "fc90k": 2.7,
+      "fvk": 2.7,
+      "E0medio": 11.6,
+      "E0k": 9.4,
+      "E90medio": 0.39,
+      "Gmedio": 0.72,
+      "rok": 380
     },
     "GL28h": {
-      "fmgk": 28,
-      "ft0gk": 19.5,
-      "ft90gk": 0.45,
-      "fc0gk": 26.5,
-      "fc90gk": 3,
-      "fvgk": 3.2,
-      "E0gmedio": 12.6,
-      "E0gk": 10.2,
-      "E90gmedio": 0.42,
-      "Ggmedio": 0.78,
-      "gammak": 410
+      "fmk": 28,
+      "ft0k": 19.5,
+      "ft90k": 0.45,
+      "fc0k": 26.5,
+      "fc90k": 3,
+      "fvk": 3.2,
+      "E0medio": 12.6,
+      "E0k": 10.2,
+      "E90medio": 0.42,
+      "Gmedio": 0.78,
+      "rok": 410
     },
     "GL32h": {
-      "fmgk": 32,
-      "ft0gk": 22.5,
-      "ft90gk": 0.5,
-      "fc0gk": 29,
-      "fc90gk": 3.3,
-      "fvgk": 3.8,
-      "E0gmedio": 13.7,
-      "E0gk": 11.1,
-      "E90gmedio": 0.46,
-      "Ggmedio": 0.85,
-      "gammak": 430
+      "fmk": 32,
+      "ft0k": 22.5,
+      "ft90k": 0.5,
+      "fc0k": 29,
+      "fc90k": 3.3,
+      "fvk": 3.8,
+      "E0medio": 13.7,
+      "E0k": 11.1,
+      "E90medio": 0.46,
+      "Gmedio": 0.85,
+      "rok": 430
     },
     "GL36h": {
-      "fmgk": 36,
-      "ft0gk": 26,
-      "ft90gk": 0.6,
-      "fc0gk": 31,
-      "fc90gk": 3.6,
-      "fvgk": 4.3,
-      "E0gmedio": 14.7,
-      "E0gk": 11.9,
-      "E90gmedio": 0.49,
-      "Ggmedio": 0.91,
-      "gammak": 450
+      "fmk": 36,
+      "ft0k": 26,
+      "ft90k": 0.6,
+      "fc0k": 31,
+      "fc90k": 3.6,
+      "fvk": 4.3,
+      "E0medio": 14.7,
+      "E0k": 11.9,
+      "E90medio": 0.49,
+      "Gmedio": 0.91,
+      "rok": 450
     },
     "GL24c": {
-      "fmgk": 24,
-      "ft0gk": 14,
-      "ft90gk": 0.35,
-      "fc0gk": 21,
-      "fc90gk": 2.4,
-      "fvgk": 2.2,
-      "E0gmedio": 11.6,
-      "E0gk": 9.4,
-      "E90gmedio": 0.32,
-      "Ggmedio": 0.59,
-      "gammagk": 350
+      "fmk": 24,
+      "ft0k": 14,
+      "ft90k": 0.35,
+      "fc0k": 21,
+      "fc90k": 2.4,
+      "fvk": 2.2,
+      "E0medio": 11.6,
+      "E0k": 9.4,
+      "E90medio": 0.32,
+      "Gmedio": 0.59,
+      "rok": 350
     },
     "GL28c": {
-      "fmgk": 28,
-      "ft0gk": 16.5,
-      "ft90gk": 0.4,
-      "fc0gk": 24,
-      "fc90gk": 2.7,
-      "fvgk": 2.7,
-      "E0gmedio": 12.6,
-      "E0gk": 10.2,
-      "E90gmedio": 0.39,
-      "Ggmedio": 0.72,
-      "gammagk": 380
+      "fmk": 28,
+      "ft0k": 16.5,
+      "ft90k": 0.4,
+      "fc0k": 24,
+      "fc90k": 2.7,
+      "fvk": 2.7,
+      "E0medio": 12.6,
+      "E0k": 10.2,
+      "E90medio": 0.39,
+      "Gmedio": 0.72,
+      "rok": 380
     },
     "GL32c": {
-      "fmgk": 32,
-      "ft0gk": 19.5,
-      "ft90gk": 0.45,
-      "fc0gk": 26.5,
-      "fc90gk": 3,
-      "fvgk": 3.2,
-      "E0gmedio": 13.7,
-      "E0gk": 11.1,
-      "E90gmedio": 0.42,
-      "Ggmedio": 0.78,
-      "gammagk": 410
+      "fmk": 32,
+      "ft0k": 19.5,
+      "ft90k": 0.45,
+      "fc0k": 26.5,
+      "fc90k": 3,
+      "fvk": 3.2,
+      "E0medio": 13.7,
+      "E0k": 11.1,
+      "E90medio": 0.42,
+      "Gmedio": 0.78,
+      "rok": 410
     },
     "GL36c": {
-      "fmgk": 36,
-      "ft0gk": 22.5,
-      "ft90gk": 0.5,
-      "fc0gk": 29,
-      "fc90gk": 3.3,
-      "fvgk": 3.8,
-      "E0gmedio": 14.7,
-      "E0gk": 11.9,
-      "E90gmedio": 0.46,
-      "Ggmedio": 0.85,
-      "gammagk": 430
+      "fmk": 36,
+      "ft0k": 22.5,
+      "ft90k": 0.5,
+      "fc0k": 29,
+      "fc90k": 3.3,
+      "fvk": 3.8,
+      "E0medio": 14.7,
+      "E0k": 11.9,
+      "E90medio": 0.46,
+      "Gmedio": 0.85,
+      "rok": 430
     }
 }

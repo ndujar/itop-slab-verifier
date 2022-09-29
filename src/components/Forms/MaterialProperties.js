@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import classesCTE from "../../assets/tables/classesCTE.json"
+import kmodsCTE from "../../assets/tables/modificationFactorsCTE.json"
 
 // reactstrap components
 import {
@@ -33,10 +34,10 @@ class MaterialProperties extends Component {
 
               <Row>
                 <Col>
-                  <CardTitle tag="h2">Hormigon</CardTitle>
+                  <CardTitle tag="h2">Hormigón</CardTitle>
                   <Row>
                     <label>
-                      Resistencia Característica
+                      Resistencia Característica (MPa)
                       <Input
                         name="fck"
                         defaultValue={this.props.fck}
@@ -60,13 +61,24 @@ class MaterialProperties extends Component {
                               return <option key={clase}>{clase}</option>
                         })}
                       </Input>
+                      Clase Servicio
+                      <Input
+                        name="ClaseServicio"
+                        defaultValue={this.props.ClaseServicio}
+                        type="select"
+                        onChange={this.onInputchange}
+                      >
+                        {Array.from(new Map(Object.entries(kmodsCTE)).keys(), (servicio) => {
+                              return <option key={servicio}>{servicio}</option>
+                        })}
+                      </Input>
                     </label>  
                 </Col>
                 <Col>
                   <CardTitle tag="h2">Pernos</CardTitle>
                     <Row>
                       <label>
-                        Resistencia Característica
+                        Resistencia Característica (MPa)
                         <Input
                           name="fyk"
                           defaultValue={this.props.fyk}
