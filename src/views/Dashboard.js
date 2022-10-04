@@ -39,7 +39,7 @@ class Dashboard extends Component {
     this.state = {
       fck: 30,
       fyk: 500,
-      ClaseMadera: "C20",
+      ClaseMadera: "C18",
       ClaseServicio: "1",
       Ecc: 6,
       Lvig: 515,
@@ -51,6 +51,7 @@ class Dashboard extends Component {
       Smax: 100,
       Hcon: 50,
       Pcon: 100,
+      Pangle: 90,
       Pforjado: 1.5,
       Pcm: 1.5,
       Puso: 2,
@@ -59,7 +60,8 @@ class Dashboard extends Component {
       gammaV: 1.25,
       gammaC: 1.5,
       gammaM: 1.3,
-      gammaS: 1.1
+      gammaS: 1.25,
+      gammaSp: 1.1
     }
     this.childToParent = this.childToParent.bind(this);
   }
