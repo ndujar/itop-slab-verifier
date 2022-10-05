@@ -31,7 +31,7 @@ class Geometry extends Component {
 
             <Row>
               <Col>
-                <CardTitle tag="h2">Forjado</CardTitle>   
+                <CardTitle tag="h3">Forjado</CardTitle>   
                   <label>
                   Espesor Capa Compresión (cm)
                   <Input
@@ -52,7 +52,7 @@ class Geometry extends Component {
                     </label>
               </Col>
               <Col>
-                <CardTitle tag="h2">Viguetas</CardTitle>
+                <CardTitle tag="h3">Viguetas</CardTitle>
                 <Row>
                   <label>
                   Base viguetas (cm)
@@ -88,7 +88,7 @@ class Geometry extends Component {
                 </Row>
               </Col>
               <Col>
-                <CardTitle tag="h2">Pernos</CardTitle>  
+                <CardTitle tag="h3">Pernos</CardTitle>  
                   <Row> 
                     <label>
                     Diámetro Conectores (mm)
@@ -139,6 +139,17 @@ class Geometry extends Component {
                     <Input
                       name="Pcon"
                       defaultValue={this.props.Pcon}
+                      type="number"
+                      onChange={this.onInputchange}
+                    />
+                    </label>  
+                  </Row>
+                  <Row>
+                    <label>
+                    Ángulo (º)
+                    <Input
+                      name="Pangle"
+                      defaultValue={this.props.Pangle}
                       type="number"
                       onChange={this.onInputchange}
                     />

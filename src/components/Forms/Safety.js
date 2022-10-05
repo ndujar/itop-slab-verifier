@@ -31,7 +31,7 @@ class Safety extends Component {
 
               <Row>
                 <Col>
-                  <CardTitle tag="h2">Mayoración</CardTitle>
+                  <CardTitle tag="h3">Mayoración</CardTitle>
                   <Row>
                     <label>
                       Acciones Permanentes
@@ -56,7 +56,7 @@ class Safety extends Component {
                   </Row>
                 </Col>
                 <Col>
-                  <CardTitle tag="h2">Minoración</CardTitle>   
+                  <CardTitle tag="h3">Minoración</CardTitle>   
                   <Row>
                     <label>
                       Elementos de union
@@ -93,10 +93,21 @@ class Safety extends Component {
                   </Row>
                   <Row>
                     <label>
-                      Pernos
+                      Acero de armar
                       <Input
                         name="gammaS"
                         defaultValue={this.props.gammaS}
+                        type="number"
+                        onChange={this.onInputchange}
+                      />
+                    </label>
+                  </Row>
+                  <Row>
+                    <label>
+                      Pernos
+                      <Input
+                        name="gammaSp"
+                        defaultValue={this.props.gammaSp}
                         type="number"
                         onChange={this.onInputchange}
                       />

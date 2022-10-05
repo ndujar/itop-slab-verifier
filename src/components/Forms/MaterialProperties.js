@@ -34,7 +34,7 @@ class MaterialProperties extends Component {
 
               <Row>
                 <Col>
-                  <CardTitle tag="h2">Hormigón</CardTitle>
+                  <CardTitle tag="h3">Hormigón</CardTitle>
                   <Row>
                     <label>
                       Resistencia Característica (MPa)
@@ -48,7 +48,7 @@ class MaterialProperties extends Component {
                   </Row>
                 </Col>
                 <Col>
-                  <CardTitle tag="h2">Madera</CardTitle>   
+                  <CardTitle tag="h3">Madera</CardTitle>   
                     <label>
                       Clase
                       <Input
@@ -75,7 +75,7 @@ class MaterialProperties extends Component {
                     </label>  
                 </Col>
                 <Col>
-                  <CardTitle tag="h2">Pernos</CardTitle>
+                  <CardTitle tag="h3">Pernos</CardTitle>
                     <Row>
                       <label>
                         Resistencia Característica (MPa)

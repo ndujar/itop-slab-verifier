@@ -31,7 +31,7 @@ class Loads extends Component {
 
               <Row>
                 <Col>
-                  <CardTitle tag="h2">Peso propio</CardTitle>
+                  <CardTitle tag="h3">Peso propio</CardTitle>
                   <Row>
                     <label>
                       Pforjado (kN/m2)
@@ -45,7 +45,7 @@ class Loads extends Component {
                   </Row>
                 </Col>
                 <Col>
-                  <CardTitle tag="h2">Cargas muertas</CardTitle>   
+                  <CardTitle tag="h3">Cargas muertas</CardTitle>   
                     <label>
                       Pcm (kN/m2)
                       <Input
@@ -57,7 +57,7 @@ class Loads extends Component {
                     </label>  
                 </Col>
                 <Col>
-                  <CardTitle tag="h2">Uso</CardTitle>
+                  <CardTitle tag="h3">Uso</CardTitle>
                     <Row>
                       <label>
                         Puso (kN/m2)

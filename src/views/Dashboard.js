@@ -61,7 +61,20 @@ class Dashboard extends Component {
       gammaC: 1.5,
       gammaM: 1.3,
       gammaS: 1.25,
-      gammaSp: 1.1
+      gammaSp: 1.15,
+      shortTermBending:{
+        compressionRatio:1,
+        tensionRatio:1,
+        woodFlexoTractionRatio:1},
+      shortTermShear:1,
+      shortTermUnions:1,
+      longTermBending:{
+          compressionRatio:1,
+          tensionRatio:1,
+          woodFlexoTractionRatio:1},
+          longTermShear:1,
+          longTermUnions:1,
+      deflection:240
     }
     this.childToParent = this.childToParent.bind(this);
   }
@@ -72,6 +85,16 @@ class Dashboard extends Component {
     response => response.json()
     )
   console.log(response)
+  this.setState({
+                shortTermBending: response.shortTermBending,
+                shortTermShear: response.shortTermShear,
+                shortTermUnions: response.shortTermUnions,
+                longTermBending: response.longTermBending,
+                longTermShear: response.longTermShear,
+                longTermUnions: response.longTermUnions,
+                deflection: response.deflection
+              })
+    console.log(this.state)
 }
 
   childToParent(e) {
@@ -112,6 +135,7 @@ class Dashboard extends Component {
                       gammaC={this.state.gammaC}
                       gammaM={this.state.gammaM}
                       gammaS={this.state.gammaS}
+                      gammaSp={this.state.gammaSp}
                       childToParent={this.childToParent}/>                
               </Card>
               <Card className="card-chart">
@@ -132,14 +156,23 @@ class Dashboard extends Component {
                       Smax={this.state.Smax}
                       Hcon={this.state.Hcon}
                       Pcon={this.state.Pcon}
+                      Pangle={this.state.Pangle}
                       gammaG={this.state.gammaG}
                       gammaQ={this.state.gammaQ}
                       gammaV={this.state.gammaV}
                       gammaC={this.state.gammaC}
                       gammaM={this.state.gammaM}
                       gammaS={this.state.gammaS}
+                      gammaSp={this.state.gammaSp}
+                      shortTermBending={this.state.shortTermBending}
+                      shortTermShear={this.state.shortTermShear}
+                      shortTermUnions={this.state.shortTermUnions}
+                      longTermBending={this.state.longTermBending}
+                      longTermShear={this.state.longTermShear}
+                      longTermUnions={this.state.longTermUnions}
+                      deflection={this.state.deflection}
                       childToParent={this.childToParent}/>   
-                  <Button onClick={this.clickVerify} >Verify</Button>
+                  <Button onClick={this.clickVerify} >Comprobar</Button>
                   
               </Card>
             </Col>
@@ -158,6 +191,7 @@ class Dashboard extends Component {
                       Smax={this.state.Smax}
                       Hcon={this.state.Hcon}
                       Pcon={this.state.Pcon}
+                      Pangle={this.state.Pangle}
                       childToParent={this.childToParent}/> 
      
                 <CrossSection Ecc={this.state.Ecc}
@@ -170,6 +204,7 @@ class Dashboard extends Component {
                       Smax={this.state.Smax}
                       Hcon={this.state.Hcon}
                       Pcon={this.state.Pcon} 
+                      Pangle={this.state.Pangle} 
                       /> 
               </Card>
             </Col>

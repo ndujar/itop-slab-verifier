@@ -23,7 +23,7 @@ class CrossSection extends Component {
 		window.addEventListener('resize', this.resizeHandler);
 	  }
 
-	drawSvg = (Bvig, Hvig, Svig, Ecc, Dcon, Smin, Smax, Hcon, Pcon, canvasHeight, canvasWidth)=>{
+	drawSvg = (Bvig, Hvig, Svig, Ecc, Dcon, Smin, Smax, Hcon, Pcon, Pangle, canvasHeight, canvasWidth)=>{
 		const canvasScale = 1/3.78;
 		const scale = 0.4 * canvasWidth / Svig;
 		const margin = 0.02 * canvasHeight;
@@ -104,11 +104,12 @@ class CrossSection extends Component {
 		const Smax = parseFloat(this.props.Smax)?parseFloat(this.props.Smax):1;
 		const Hcon = parseFloat(this.props.Hcon)?parseFloat(this.props.Hcon):1;
 		const Pcon = parseFloat(this.props.Pcon)?parseFloat(this.props.Pcon):1;
+		const Pangle = parseFloat(this.props.Pangle)?parseFloat(this.props.Pangle):1;
 		var canvasHeight = this.state.height;
 		var canvasWidth = this.state.width;
 		var textHeight =  0.5 * canvasWidth / Svig;
 
-		const mod = this.drawSvg(Bvig, Hvig, Svig, Ecc, Dcon, Smin, Smax, Hcon, Pcon, canvasHeight, canvasWidth);
+		const mod = this.drawSvg(Bvig, Hvig, Svig, Ecc, Dcon, Smin, Smax, Hcon, Pcon, Pangle, canvasHeight, canvasWidth);
 		mod.units = unitType.Millimeter;
 
 		const dxfString = exporter.toDXF(mod, {fontSize: 5});
