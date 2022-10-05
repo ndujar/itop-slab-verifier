@@ -77,6 +77,7 @@ class Dashboard extends Component {
       deflection:'N/A'
     }
     this.childToParent = this.childToParent.bind(this);
+
   }
 
   clickVerify = async (e) => {
@@ -84,7 +85,9 @@ class Dashboard extends Component {
     const response = await fetch('/.netlify/functions/verify?' + new URLSearchParams(this.state)).then(
     response => response.json()
     )
+
   console.log(response)
+
   this.setState({
                 shortTermBending: response.shortTermBending,
                 shortTermShear: response.shortTermShear,
@@ -94,7 +97,7 @@ class Dashboard extends Component {
                 longTermUnions: response.longTermUnions,
                 deflection: response.deflection
               })
-    console.log(this.state)
+    console.log(this.state) 
 }
 
   childToParent(e) {
@@ -139,6 +142,7 @@ class Dashboard extends Component {
                       childToParent={this.childToParent}/>                
               </Card>
               <Card className="card-chart">
+                <Button onClick={this.clickVerify} >Comprobar</Button>
                 <Verifications 
                       fck={this.state.fck}
                       fyk={this.state.fyk}
@@ -171,9 +175,7 @@ class Dashboard extends Component {
                       longTermShear={this.state.longTermShear}
                       longTermUnions={this.state.longTermUnions}
                       deflection={this.state.deflection}
-                      childToParent={this.childToParent}/>   
-                  <Button onClick={this.clickVerify} >Comprobar</Button>
-                  
+                      childToParent={this.childToParent}/>                  
               </Card>
             </Col>
 

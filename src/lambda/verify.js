@@ -302,6 +302,7 @@ export function computeDeflection(concrete,
   
   return fflu
 }
+
 export function computeDeflectionSLS(
                                   concrete,
                                   wood,
@@ -340,8 +341,9 @@ export function computeDeflectionSLS(
 
 
 export function handler(event, context, callback) {
-  console.log('queryStringParameters', event.queryStringParameters)
+  console.log('------------------------::queryStringParameters::------------------');
   const parameters = event.queryStringParameters;
+  console.log(parameters);
 
   // Collect needed data into concrete, connectors, geometry, loads and wood objects
   const coefficients = getSafetyCoefficients(parameters);

@@ -103,8 +103,8 @@ function Admin(props) {
     <BackgroundColorContext.Consumer>
       {({ color, changeColor }) => (
         <React.Fragment>
-          <div className="wrapper">
-            <Sidebar
+          {/* <div className="wrapper"> */}
+            {/* <Sidebar
               routes={routes}
               logo={{
                 outterLink: "https://www.creative-tim.com/",
@@ -112,19 +112,19 @@ function Admin(props) {
                 imgSrc: logo
               }}
               toggleSidebar={toggleSidebar}
-            />
-            <div className="main-panel" ref={mainPanelRef} data={color}>
-              <AdminNavbar
+            /> */}
+            {/* <div className="main-panel" ref={mainPanelRef} data={color}> */}
+              {/* <AdminNavbar
                 brandText={getBrandText(location.pathname)}
                 toggleSidebar={toggleSidebar}
                 sidebarOpened={sidebarOpened}
-              />
+              /> */}
               <Switch>
                 {getRoutes(routes)}
                 <Redirect from="*" to="/admin/dashboard" />
               </Switch>
-            </div>
-          </div>
+            {/* </div> */}
+          {/* </div> */}
         </React.Fragment>
       )}
     </BackgroundColorContext.Consumer>
