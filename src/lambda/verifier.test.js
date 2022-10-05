@@ -380,3 +380,126 @@ test('Long term deflection SLS should be properly computed:', () => {
                                   appliedLoads
                                   )).toStrictEqual(308.0394661956837);
 });
+
+test('Handler function should run from start to end', () => {
+  
+  // Collect needed data into concrete, connectors, geometry, loads and wood objects
+  const coefficients = verifier.getSafetyCoefficients(parameters);
+  const concrete = verifier.getConcreteProperties(parameters, coefficients.gammaC);
+  const connectors = verifier.getConnectorProperties(parameters, coefficients.gammaS);
+  const geometry = verifier.getGeometry(parameters);
+  const loads = verifier.getLoads(parameters, 
+                                  coefficients.gammaG, 
+                                  coefficients.gammaQ, 
+                                  concrete.densityC,
+                                  geometry.Ecc,
+                                  geometry.Svig,
+                                  geometry.Lvig
+                                  );
+  const wood = verifier.getWoodProperties(parameters, 
+                                  loads, 
+                                  coefficients.gammaM, 
+                                  connectors.Dcon);
+
+  // Get short terms effect of forces applied
+  let sectionCorrectors = verifier.computeSectionCorrectors(connectors, 
+                                                            geometry, 
+                                                            concrete.Ec, 
+                                                            wood.E2, 
+                                                            wood.Ku);
+
+  const shortTermBending = verifier.computeBendingULS(concrete, 
+                                                      wood,
+                                                      geometry, 
+                                                      sectionCorrectors,
+                                                      loads,
+                                                      concrete.Ec,
+                                                      wood.E2
+                                                      );
+                
+
+  const shortTermShear = verifier.computeShearULS(coefficients,
+                                                  wood,
+                                                  geometry,
+                                                  sectionCorrectors,
+                                                  loads,
+                                                  wood.E2,
+                                                  wood.kmods.kmoddef
+                                                  );
+  
+  const shortTermUnions = verifier.computeUnionsULS(coefficients,
+                                                    concrete, 
+                                                    wood,
+                                                    connectors,
+                                                    geometry, 
+                                                    sectionCorrectors,
+                                                    loads,
+                                                    concrete.Ec
+                                                    )
+  // Get long term effects of forces applied
+  const Eef1 = concrete.Ec * (loads.qratioperm / (1 + concrete.psi1p) + (loads.qratiomed / (1 + concrete.psimed)));
+  const Eef2 = wood.E2 * (loads.qratioperm / (1 + wood.kmods.kdefperm) + (loads.qratiomed / (1 + wood.kmods.kdefmed)));
+  const kdef = loads.qratioperm * wood.kmods.kdefperm + loads.qratiomed * wood.kmods.kdefmed;
+  const Kufin = wood.Ku / (1 + kdef);
+
+  sectionCorrectors = verifier.computeSectionCorrectors(connectors, 
+                                                        geometry, 
+                                                        Eef1, 
+                                                        Eef2, 
+                                                        Kufin);
+
+  const longTermBending = verifier.computeBendingULS(concrete, 
+                                                      wood,
+                                                      geometry, 
+                                                      sectionCorrectors,
+                                                      loads,
+                                                      Eef1,
+                                                      Eef2
+                                                      );
+                
+
+  const longTermShear = verifier.computeShearULS(coefficients,
+                                                  wood,
+                                                  geometry,
+                                                  sectionCorrectors,
+                                                  loads,
+                                                  Eef2,
+                                                  wood.kmods.kmoddef
+                                                  );
+
+
+  const longTermUnions = verifier.computeUnionsULS(coefficients,
+                                                    concrete, 
+                                                    wood,
+                                                    connectors,
+                                                    geometry, 
+                                                    sectionCorrectors,
+                                                    loads,
+                                                    Eef1
+                                                    )
+
+  sectionCorrectors = verifier.computeSectionCorrectors(connectors, 
+                                                        geometry, 
+                                                        concrete.Ec, 
+                                                        wood.E2, 
+                                                        wood.Kser);    
+
+  const deflection = verifier.computeDeflectionSLS(concrete, 
+                                                    wood,
+                                                    connectors,
+                                                    geometry, 
+                                                    sectionCorrectors,
+                                                    loads
+                                                    )
+
+  const verifications = {shortTermBending: shortTermBending, 
+                          shortTermShear: shortTermShear,
+                          shortTermUnions: shortTermUnions,
+                          longTermBending: longTermBending, 
+                          longTermShear: longTermShear,
+                          longTermUnions: longTermUnions,
+                          deflection: deflection
+                        }   
+  expect(verifications).toStrictEqual({"deflection": 308.0394661956837, "longTermBending": {"compressionRatio": 0.26573583126879674, "tensionRatio": 0.31776463745828604, "woodFlexoTractionRatio": 1.0296297875842861}, "longTermShear": 0.2693297981783644, "longTermUnions": 0.7254374679977972, "shortTermBending": {"compressionRatio": 0.376473136561152, "tensionRatio": 1.4994540857167618, "woodFlexoTractionRatio": 0.9602984335303256}, "shortTermShear": 0.2565961416994181, "shortTermUnions": 0.7150876125171662}
+  );                                         
+})

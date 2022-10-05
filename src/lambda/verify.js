@@ -343,32 +343,25 @@ export function handler(event, context, callback) {
   console.log('queryStringParameters', event.queryStringParameters)
   const parameters = event.queryStringParameters;
 
+  // Collect needed data into concrete, connectors, geometry, loads and wood objects
   const coefficients = getSafetyCoefficients(parameters);
-  console.log('Coefficients:', coefficients);
-
-  const geometry = getGeometry(parameters);
-  console.log('Geometry:', geometry);
-
-  const loads = getLoads(parameters, 
-    coefficients.gammaG, 
-    coefficients.gammaQ, 
-    concrete.densityC,
-    geometry.Ecc,
-    geometry.Svig,
-    geometry.Lvig
-    );
-  console.log('Loads:', loads);
-
+  const concrete = getConcreteProperties(parameters, coefficients.gammaC);
   const connectors = getConnectorProperties(parameters, coefficients.gammaS);
-  console.log('Connectors:', connectors);
+  const geometry = getGeometry(parameters);
+  const loads = getLoads(parameters, 
+                          coefficients.gammaG, 
+                          coefficients.gammaQ, 
+                          concrete.densityC,
+                          geometry.Ecc,
+                          geometry.Svig,
+                          geometry.Lvig
+                          );
+  const wood = getWoodProperties(parameters, 
+                                loads, 
+                                coefficients.gammaM, 
+                                connectors.Dcon);
 
-  const wood = getWoodProperties(parameters, loads, coefficients.gammaM, connectors.Dcon);
-  console.log('Wood:', wood);
-
-  const concrete = getConcreteProperties(parameters, coefficients.gammaC)
-  console.log('Concrete:', concrete);
-
-  const sectionCorrectors = computeSectionCorrectors(connectors, 
+  let sectionCorrectors = computeSectionCorrectors(connectors, 
                                                       geometry, 
                                                       concrete.Ec, 
                                                       wood.E2, 
@@ -384,12 +377,13 @@ export function handler(event, context, callback) {
                                               );
                 
 
-  const shortTermShear = computeShearULS(parameters,
+  const shortTermShear = computeShearULS(coefficients,
                                         wood,
                                         geometry,
                                         sectionCorrectors,
                                         loads,
-                                        wood.E2
+                                        wood.E2,
+                                        wood.kmods.kmoddef
                                         );
   
   const shortTermUnions = computeUnionsULS(coefficients,
@@ -401,20 +395,18 @@ export function handler(event, context, callback) {
                                             loads,
                                             concrete.Ec
                                             )
-  const kdefperm = wood.kdefperm;
-  const kdefmed = wood.kdefmed;
 
+                                          
   const Eef1 = concrete.Ec * (loads.qratioperm / (1 + concrete.psi1p) + (loads.qratiomed / (1 + concrete.psimed)));
   const Eef2 = wood.E2 * (loads.qratioperm / (1 + wood.kmods.kdefperm) + (loads.qratiomed / (1 + wood.kmods.kdefmed)));
   const kdef = loads.qratioperm * wood.kmods.kdefperm + loads.qratiomed * wood.kmods.kdefmed;
-  const Kufin = wood.Ku / (1 + wood.kmods.kdef);
-  const K1 = Kufin;                                        
+  const Kufin = wood.Ku / (1 + kdef);
 
   sectionCorrectors = computeSectionCorrectors(connectors, 
                                                 geometry, 
                                                 Eef1, 
                                                 Eef2, 
-                                                K1);
+                                                Kufin);
 
   const longTermBending = computeBendingULS(concrete, 
                                               wood,
@@ -431,7 +423,8 @@ export function handler(event, context, callback) {
                                         geometry,
                                         sectionCorrectors,
                                         loads,
-                                        Eef2
+                                        Eef2,
+                                        wood.kmods.kmoddef
                                         );
 
 
@@ -459,15 +452,17 @@ export function handler(event, context, callback) {
                                           loads
                                           )
 
+  const verifications = {shortTermBending: shortTermBending, 
+                          shortTermShear: shortTermShear,
+                          shortTermUnions: shortTermUnions,
+                          longTermBending: longTermBending, 
+                          longTermShear: longTermShear,
+                          longTermUnions: longTermUnions,
+                          deflection: deflection
+                        }         
+                                                         
   callback(null, {
     statusCode: 200,
-    body: JSON.stringify({shortTermBending: {shortTermBending}, 
-                          shortTermShear: {shortTermShear},
-                          shortTermUnions: {shortTermUnions},
-                          longTermBending: {longTermBending}, 
-                          longTermShear: {longTermShear},
-                          longTermUnions: {longTermUnions},
-                          deflection: {deflection}
-                        }),
+    body: JSON.stringify(verifications),
   })
 }
