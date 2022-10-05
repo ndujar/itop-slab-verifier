@@ -63,18 +63,18 @@ class Dashboard extends Component {
       gammaS: 1.25,
       gammaSp: 1.15,
       shortTermBending:{
-        compressionRatio:1,
-        tensionRatio:1,
-        woodFlexoTractionRatio:1},
-      shortTermShear:1,
-      shortTermUnions:1,
+        compressionRatio:'N/A',
+        tensionRatio:'N/A',
+        woodFlexoTractionRatio:'N/A'},
+      shortTermShear:'N/A',
+      shortTermUnions:'N/A',
       longTermBending:{
-          compressionRatio:1,
-          tensionRatio:1,
-          woodFlexoTractionRatio:1},
-          longTermShear:1,
-          longTermUnions:1,
-      deflection:240
+          compressionRatio:'N/A',
+          tensionRatio:'N/A',
+          woodFlexoTractionRatio:'N/A'},
+      longTermShear:'N/A',
+      longTermUnions:'N/A',
+      deflection:'N/A'
     }
     this.childToParent = this.childToParent.bind(this);
   }
