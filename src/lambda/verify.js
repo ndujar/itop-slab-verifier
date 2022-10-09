@@ -337,8 +337,9 @@ export function computeDeflectionSLS(
       const ftotalflu = fpermflu + fmedflu;
       
       const fratio = geometry.Lvig / ftotalflu;
+      const fratioflu = geometry.Lvig / (ftotalflu + felas)
 
-      return fratio
+      return {fratio:fratio, fratioflu:fratioflu}
 }
 
 

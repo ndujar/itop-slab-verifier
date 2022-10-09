@@ -125,7 +125,12 @@ const parameters = {
     compressionRatio: 0.3158122254456934,
     tensionRatio: 0.26935249427353497,
     woodFlexoTractionRatio: 1.036067838153627
-}
+  }
+
+  const deflections = {
+    fratio: 303.38432294818057, 
+    fratioflu: 184.88054289957884
+  }
 
 test('Safety coefficients should be those from the input:', () => {
     expect(verifier.getSafetyCoefficients(parameters)).toStrictEqual(coefficients);
@@ -378,7 +383,7 @@ test('Long term deflection SLS should be properly computed:', () => {
                                   geometry, 
                                   sectionCorrectors,
                                   appliedLoads
-                                  )).toStrictEqual(303.38432294818057);
+                                  )).toStrictEqual(deflections);
 });
 
 test('Handler function should run from start to end', () => {
@@ -484,7 +489,7 @@ test('Handler function should run from start to end', () => {
                                                         wood.E2, 
                                                         wood.Kser);    
 
-  const deflection = verifier.computeDeflectionSLS(concrete, 
+  const deflections = verifier.computeDeflectionSLS(concrete, 
                                                     wood,
                                                     connectors,
                                                     geometry, 
@@ -498,8 +503,8 @@ test('Handler function should run from start to end', () => {
                           longTermBending: longTermBending, 
                           longTermShear: longTermShear,
                           longTermUnions: longTermUnions,
-                          deflection: deflection
+                          deflections: deflections
                         }   
-  expect(verifications).toStrictEqual({"deflection": 303.38432294818057, "longTermBending": LongTermBendingULSRatios, "longTermShear": 0.2703064349105938, "longTermUnions": 0.8136549204593231, "shortTermBending": ShortTermBendingULSRatios, "shortTermShear": 0.25824976296907515, "shortTermUnions": 0.8062440086543777}
+  expect(verifications).toStrictEqual({"deflections": deflections, "longTermBending": LongTermBendingULSRatios, "longTermShear": 0.2703064349105938, "longTermUnions": 0.8136549204593231, "shortTermBending": ShortTermBendingULSRatios, "shortTermShear": 0.25824976296907515, "shortTermUnions": 0.8062440086543777}
   );                                         
 })
