@@ -63,18 +63,20 @@ class Dashboard extends Component {
       gammaS: 1.15,
       gammaMb: 1.25,
       shortTermBending:{
-        compressionRatio:'N/A',
-        tensionRatio:'N/A',
-        woodFlexoTractionRatio:'N/A'},
-      shortTermShear:'N/A',
-      shortTermUnions:'N/A',
+        compressionRatio:'--',
+        tensionRatio:'--',
+        woodFlexoTractionRatio:'--'},
+      shortTermShear:'--',
+      shortTermUnions:'--',
       longTermBending:{
-          compressionRatio:'N/A',
-          tensionRatio:'N/A',
-          woodFlexoTractionRatio:'N/A'},
-      longTermShear:'N/A',
-      longTermUnions:'N/A',
-      deflection:'N/A'
+          compressionRatio:'--',
+          tensionRatio:'--',
+          woodFlexoTractionRatio:'--'},
+      longTermShear:'--',
+      longTermUnions:'--',
+      deflections:{
+        fratio:'--',
+        fratioflu:'--'}
     }
     this.childToParent = this.childToParent.bind(this);
 
@@ -95,7 +97,7 @@ class Dashboard extends Component {
                 longTermBending: response.longTermBending,
                 longTermShear: response.longTermShear,
                 longTermUnions: response.longTermUnions,
-                deflection: response.deflection
+                deflections: response.deflection
               })
     console.log(this.state) 
 }
@@ -174,7 +176,7 @@ class Dashboard extends Component {
                       longTermBending={this.state.longTermBending}
                       longTermShear={this.state.longTermShear}
                       longTermUnions={this.state.longTermUnions}
-                      deflection={this.state.deflection}
+                      deflections={this.state.deflections}
                       childToParent={this.childToParent}/>                  
               </Card>
             </Col>
