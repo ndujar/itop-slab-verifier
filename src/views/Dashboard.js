@@ -37,9 +37,9 @@ class Dashboard extends Component {
     super();
 
     this.state = {
-      fck: 30,
+      fck: 25,
       fyk: 500,
-      ClaseMadera: "C18",
+      ClaseMadera: "C20",
       ClaseServicio: "1",
       Ecc: 6,
       Lvig: 515,
@@ -57,11 +57,11 @@ class Dashboard extends Component {
       Puso: 2,
       gammaG: 1.35,
       gammaQ: 1.5,
-      gammaV: 1.25,
+      gammaV: 1.3,
       gammaC: 1.5,
       gammaM: 1.3,
-      gammaS: 1.25,
-      gammaSp: 1.15,
+      gammaS: 1.15,
+      gammaMb: 1.25,
       shortTermBending:{
         compressionRatio:'N/A',
         tensionRatio:'N/A',
@@ -138,7 +138,7 @@ class Dashboard extends Component {
                       gammaC={this.state.gammaC}
                       gammaM={this.state.gammaM}
                       gammaS={this.state.gammaS}
-                      gammaSp={this.state.gammaSp}
+                      gammaMb={this.state.gammaMb}
                       childToParent={this.childToParent}/>                
               </Card>
               <Card className="card-chart">
@@ -167,7 +167,7 @@ class Dashboard extends Component {
                       gammaC={this.state.gammaC}
                       gammaM={this.state.gammaM}
                       gammaS={this.state.gammaS}
-                      gammaSp={this.state.gammaSp}
+                      gammaMb={this.state.gammaMb}
                       shortTermBending={this.state.shortTermBending}
                       shortTermShear={this.state.shortTermShear}
                       shortTermUnions={this.state.shortTermUnions}

@@ -9,7 +9,7 @@ export function getGeometry(parameters){
     const Hvig = parseFloat(parameters.Hvig) * 10;
     const Svig = parseFloat(parameters.Svig) * 10;
     const Ecc = parseFloat(parameters.Ecc) * 10;
-    const b1 = Math.max(Svig * (1 - 1.4 * (Svig / Lvig) ** 2), Svig);
+    const b1 = Svig * (1 - 1.4 * (Svig / Lvig) ** 2);
     const A1 = b1 * Ecc;
     const A2 = Bvig * Hvig;
     const I1 = (b1 * Ecc ** 3) / 12;
@@ -37,7 +37,7 @@ export function getSafetyCoefficients(parameters){
     const gammaM = parseFloat(parameters.gammaM);
     const gammaC = parseFloat(parameters.gammaC);
     const gammaS = parseFloat(parameters.gammaS);
-    const gammaSp = parseFloat(parameters.gammaSp);
+    const gammaMb = parseFloat(parameters.gammaMb);
 
     return {
       gammaG: gammaG,
@@ -46,7 +46,7 @@ export function getSafetyCoefficients(parameters){
       gammaM: gammaM,
       gammaC: gammaC,
       gammaS: gammaS,
-      gammaSp: gammaSp
+      gammaMb: gammaMb
     }
 }
 
@@ -207,7 +207,7 @@ export function computeSectionCorrectors(
                                         Eef1,
                                         Eef2,
                                         K1){
-
+                                         
   const gamma = 1 / (1 + ((Eef1 * geometry.A1 * connectors.Sef * Math.PI**2)/(K1 * geometry.Lvig ** 2)));
   const a2 = (gamma * Eef1 * geometry.A1 * (geometry.Ecc + geometry.Hvig)) / (2 * (Eef1 * geometry.A1 * gamma + Eef2 * geometry.A2));
   const a1 = 0.5 * (geometry.Ecc + geometry.Hvig) - a2;
@@ -251,14 +251,14 @@ export function computeUnionsULS(coefficients,
                                 Eef1){
     // ELU unions
     const Funion = (sectionCorrectors.gamma * Eef1 * geometry.A1 * sectionCorrectors.a1 *  connectors.Sef * loads.Vdv) / sectionCorrectors.EIef;
-    const slenderness = geometry.Hcon / connectors.Dcon;
+    const slenderness = connectors.Hcon / connectors.Dcon;
     let alpha = 1;
     if (3 < slenderness && slenderness < 4){
       alpha = 0.2 * (slenderness + 1)
     }
   
     const Rdh = (0.29 * alpha * connectors.Dcon**2) * Math.sqrt(concrete.fck * concrete.Ec / coefficients.gammaV);
-    const Rdst = 0.8 * connectors.fyk * (0.25 * Math.PI * connectors.Dcon**2 ) / coefficients.gammaV;
+    const Rdst = 0.6 * connectors.fyk * (0.25 * Math.PI * connectors.Dcon**2 ) / coefficients.gammaMb;
     const fh0k = 0.082 * (1 - 0.01 * connectors.Dcon) * wood.rok;
     const k90 = 1.35 + 0.015 * connectors.Dcon;
     const boltAngleRadians = (connectors.Pangle * Math.PI) / 180.0;
@@ -266,12 +266,14 @@ export function computeUnionsULS(coefficients,
     const fh90k = fh0k / ((k90 * Math.sin(boltAngleRadians)**2) + Math.cos(boltAngleRadians)**2);
     const fh90d = wood.kmods.kmod1 * fh90k / coefficients.gammaM;
     
-    const Myk = (0.8 * connectors.fyk * connectors.Dcon**3) / 6;
-    const Myd = Myk / coefficients.gammaSp;
-    const Rdm1 = 1.1 * fh90d * connectors.Pcon * connectors.Dcon * ((Math.sqrt(2 + (4 * Myd / (fh90d * connectors.Dcon * connectors.Pcon**2)))) -1);
-    const Rdm2 = 1.5 * Math.sqrt(2 * Myd * fh90d * connectors.Dcon);
+    const Myk = (0.3 * connectors.fyk * connectors.Dcon**2.6);
 
-    const Rd = Math.min(Rdh, Rdst, Rdm1, Rdm2);
+    const Rdm1 = fh90d * connectors.Pcon * connectors.Dcon * ((Math.sqrt(2 + (4 * Myk / (fh90d * connectors.Dcon * connectors.Pcon**2)))) -1);
+    const Rdm2 = 1.5 * Math.sqrt(2 * Myk * fh90d * connectors.Dcon);
+
+    const Rdm3 = fh90d * connectors.Pcon * connectors.Dcon;
+    
+    const Rd = Math.min(Rdh, Rdst, Rdm1, Rdm2, Rdm3);
   
     const unionRatio = Funion / Rd;
 

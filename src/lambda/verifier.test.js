@@ -1,7 +1,7 @@
 import * as verifier from './verify'
 
 const parameters = {
-    fck: 30,
+    fck: 25,
     fyk: 500,
     ClaseMadera: "C20",
     ClaseServicio: "1",
@@ -21,22 +21,22 @@ const parameters = {
     Puso: 2,
     gammaG: 1.35,
     gammaQ: 1.5,
-    gammaV: 1.25,
+    gammaV: 1.3,
     gammaC: 1.5,
     gammaM: 1.3,
-    gammaS: 1.25,
-    gammaSp: 1.1
+    gammaS: 1.15,
+    gammaMb: 1.25
 
   }
 
   const coefficients = {
     gammaG: 1.35,
     gammaQ: 1.5,
-    gammaV: 1.25,
+    gammaV: 1.3,
     gammaC: 1.5,
     gammaM: 1.3,
-    gammaS: 1.25,
-    gammaSp: 1.1
+    gammaS: 1.15,
+    gammaMb: 1.25
   }
 
   const geometry = {
@@ -45,16 +45,16 @@ const parameters = {
     Hvig: 200,
     Svig: 650,
     Ecc: 60,
-    b1: 650,
-    A1: 39000,
+    b1: 635.503817513432,
+    A1: 38130.229050805916,
     A2: 30000,
-    I1: 11700000,
+    I1: 11439068.715241775,
     I2: 100000000
   }
 
   const connectorProperties = {
     fyk: 500,
-    fyd: 400,
+    fyd: 434.7826086956522,
     fyalphad: 400,
     Dcon: 12,
     Smax: 100,
@@ -90,12 +90,12 @@ const parameters = {
   }
 
   const concreteProperties = {
-    fck: 30,
-    fctmd: 1.9309787692112594,
-    fctfl: 3.5723107230408297,
-    f1cd: 12,
-    fcd: 20,
-    Ec: 28576.790957791185,
+    fck: 25,
+    fctmd: 1.7099759466766968,
+    fctfl: 3.1634555013518892,
+    f1cd: 10,
+    fcd: 16.666666666666668,
+    Ec: 27264.041804964523,
     Es: 200000,
     densityC: 25,
     psi1p: 2.25,
@@ -116,15 +116,15 @@ const parameters = {
 
 
   const ShortTermBendingULSRatios = {
-    compressionRatio: 0.376473136561152,
-    tensionRatio: 1.4994540857167618,
-    woodFlexoTractionRatio: 0.9602984335303256
+    compressionRatio: 0.4445947274388446,
+    tensionRatio: 1.5501431137429103,
+    woodFlexoTractionRatio: 0.9680525025242324
   }
 
   const LongTermBendingULSRatios = {
-    compressionRatio: 0.26573583126879674,
-    tensionRatio: 0.31776463745828604,
-    woodFlexoTractionRatio: 1.0296297875842861
+    compressionRatio: 0.3158122254456934,
+    tensionRatio: 0.26935249427353497,
+    woodFlexoTractionRatio: 1.036067838153627
 }
 
 test('Safety coefficients should be those from the input:', () => {
@@ -195,7 +195,7 @@ test('Short term shear ULS should be properly computed:', () => {
                                   appliedLoads,
                                   woodProperties.E2,
                                   woodProperties.kmods.kmod1
-                                  )).toStrictEqual(0.43834106124476013);
+                                  )).toStrictEqual(0.44116592874837013);
 });
 
 test('Short term union ULS should be properly computed:', () => {
@@ -215,7 +215,7 @@ test('Short term union ULS should be properly computed:', () => {
                                   sectionCorrectors,
                                   appliedLoads,
                                   concreteProperties.Ec
-                                  )).toStrictEqual(0.7150876125171662);
+                                  )).toStrictEqual(0.8062440086543777);
 });
 
 test('Long term bending ULS should be properly computed:', () => {
@@ -232,7 +232,7 @@ test('Long term bending ULS should be properly computed:', () => {
                                                         Eef1, 
                                                         Eef2,
                                                         K1);
-                                           
+                                   
   expect(verifier.computeBendingULS(concreteProperties, 
                                     woodProperties,
                                     geometry, 
@@ -286,7 +286,7 @@ test('Long term shear ULS should be properly computed:', () => {
                                   appliedLoads,
                                   Eef2,
                                   woodProperties.kmods.kmoddef
-                                  )).toStrictEqual(0.4407214879282326);
+                                  )).toStrictEqual(0.44231962076278986);
 });
 
 test('Long term union ULS should be properly computed:', () => {
@@ -335,7 +335,7 @@ test('Long term union ULS should be properly computed:', () => {
                                   sectionCorrectors,
                                   appliedLoads,
                                   Eef1
-                                  )).toStrictEqual(0.7254374679977972);
+                                  )).toStrictEqual(0.8136549204593231);
 });
 
 test('Long term deflection SLS should be properly computed:', () => {
@@ -378,7 +378,7 @@ test('Long term deflection SLS should be properly computed:', () => {
                                   geometry, 
                                   sectionCorrectors,
                                   appliedLoads
-                                  )).toStrictEqual(308.0394661956837);
+                                  )).toStrictEqual(303.38432294818057);
 });
 
 test('Handler function should run from start to end', () => {
@@ -500,6 +500,6 @@ test('Handler function should run from start to end', () => {
                           longTermUnions: longTermUnions,
                           deflection: deflection
                         }   
-  expect(verifications).toStrictEqual({"deflection": 308.0394661956837, "longTermBending": {"compressionRatio": 0.26573583126879674, "tensionRatio": 0.31776463745828604, "woodFlexoTractionRatio": 1.0296297875842861}, "longTermShear": 0.2693297981783644, "longTermUnions": 0.7254374679977972, "shortTermBending": {"compressionRatio": 0.376473136561152, "tensionRatio": 1.4994540857167618, "woodFlexoTractionRatio": 0.9602984335303256}, "shortTermShear": 0.2565961416994181, "shortTermUnions": 0.7150876125171662}
+  expect(verifications).toStrictEqual({"deflection": 303.38432294818057, "longTermBending": LongTermBendingULSRatios, "longTermShear": 0.2703064349105938, "longTermUnions": 0.8136549204593231, "shortTermBending": ShortTermBendingULSRatios, "shortTermShear": 0.25824976296907515, "shortTermUnions": 0.8062440086543777}
   );                                         
 })
