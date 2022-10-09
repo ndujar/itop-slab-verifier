@@ -20,16 +20,20 @@ class Verifications extends Component {
         <div>
             <CardHeader>
               <Row>
-                <h5 className="card-category">Comprobación</h5>
+                <Col>
+                  <h5 className="card-category">Comprobación</h5>
+                </Col>
               </Row>
 
               <Row>
                 <Col>
                   <CardTitle tag="h3">Estados Límite Últimos</CardTitle>
                   <Row>
-                    <label>
-                      Acciones de Corta Duración
-                    </label>
+                    <Col>
+                      <label>
+                        Acciones de Corta Duración
+                      </label>
+                    </Col>
                   </Row>
                   <Row>
                     <ul>
@@ -45,9 +49,11 @@ class Verifications extends Component {
           
                   </Row>
                   <Row>
-                    <label>
-                      Acciones de Larga Duración
-                    </label>
+                    <Col>
+                      <label>
+                        Acciones de Larga Duración
+                      </label>
+                    </Col>
                   </Row>
                   <Row>
                     <ul>

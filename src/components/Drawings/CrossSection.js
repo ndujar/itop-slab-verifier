@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import makerjs, { paths, unitType, exporter } from "makerjs";
-import { Button } from "reactstrap";
+import { Col, Button } from "reactstrap";
 
 class CrossSection extends Component {
 	constructor(){
@@ -66,7 +66,7 @@ class CrossSection extends Component {
 		}
 		
 		dimensionsS = makerjs.$(dimensionsS)
-							.addCaption('S = ' + Svig + ' cm', [centerX - (margin + Svig * 0.5) * scale, offsetY + centerY + 2 * margin * scale], [centerX + (margin + Svig * 0.5) * scale, offsetY + centerY + 2 * margin * scale])
+							.addCaption('S (' + Svig + ' cm)', [centerX - (margin + Svig * 0.5) * scale, offsetY + centerY + 2 * margin * scale], [centerX + (margin + Svig * 0.5) * scale, offsetY + centerY + 2 * margin * scale])
 							.scale(canvasScale)
 							.$result;
 
@@ -79,7 +79,7 @@ class CrossSection extends Component {
 		}
 		
 		dimensionsB = makerjs.$(dimensionsB)
-							.addCaption('B = ' + Bvig + ' cm', [centerX +  Svig * 0.5 * scale, offsetY + centerY - (2 * margin + Hvig) * scale], [centerX + Svig * 0.5 * scale, offsetY + centerY - (2 * margin + Hvig) * scale])
+							.addCaption('B (' + Bvig + ' cm)', [centerX +  Svig * 0.5 * scale, offsetY + centerY - (2 * margin + Hvig) * scale], [centerX + Svig * 0.5 * scale, offsetY + centerY - (2 * margin + Hvig) * scale])
 							.scale(canvasScale)
 					.$result;
 
@@ -94,7 +94,7 @@ class CrossSection extends Component {
 		}
 		
 		dimensionsH = makerjs.$(dimensionsH)
-							.addCaption('H = ' + Hvig + ' cm', [centerX - (2.5 * margin + (Svig + Bvig) * 0.5) * scale, offsetY + centerY - Hvig * scale], 	[centerX - (2.5 * margin + (Svig + Bvig) * 0.5) * scale , offsetY + centerY ])
+							.addCaption('H (' + Hvig + ' cm)', [centerX - (2.5 * margin + (Svig + Bvig) * 0.5) * scale, offsetY + centerY - Hvig * scale], 	[centerX - (2.5 * margin + (Svig + Bvig) * 0.5) * scale , offsetY + centerY ])
 							.scale(canvasScale)
 					.$result;
 		
@@ -105,7 +105,7 @@ class CrossSection extends Component {
 		}
 		
 		dimensionsEcc = makerjs.$(dimensionsEcc)
-							.addCaption('Ecc = ' + Ecc + ' cm', [centerX - (3.5 * margin + (Svig + Bvig) * 0.5) * scale , offsetY + centerY ], 	[centerX - (3.5 * margin + (Svig + Bvig) * 0.5) * scale , offsetY + centerY + Ecc * scale ])
+							.addCaption('Ecc (' + Ecc + ' cm)', [centerX - (3.5 * margin + (Svig + Bvig) * 0.5) * scale , offsetY + centerY ], 	[centerX - (3.5 * margin + (Svig + Bvig) * 0.5) * scale , offsetY + centerY + Ecc * scale ])
 							.scale(canvasScale)
 					.$result;
 										
@@ -163,14 +163,16 @@ class CrossSection extends Component {
 
 		return (
 			<div>	
-				<h3>Esquema</h3>
-				<div 
-					className="content"
-					ref={ (divElement) => { this.divElement = divElement } }
-					dangerouslySetInnerHTML={ {__html: exporter.toSVG(mod, {fontSize: textHeight} )}} style={sketchStyleObj} 
-				/>
-				<Button onClick={downloadTxtFile}>Descargar DXF</Button>
-				Size: width: <b>{this.state.width}px</b>, height: <b>{this.state.height}px</b>
+				<Col>
+					<h3>Esquema</h3>
+					<div 
+						className="content"
+						ref={ (divElement) => { this.divElement = divElement } }
+						dangerouslySetInnerHTML={ {__html: exporter.toSVG(mod, {fontSize: textHeight} )}} style={sketchStyleObj} 
+					/>
+					<Button onClick={downloadTxtFile}>Descargar DXF</Button>
+					Size: width: <b>{this.state.width}px</b>, height: <b>{this.state.height}px</b>
+				</Col>
 			</div>
 	  	);
 	}

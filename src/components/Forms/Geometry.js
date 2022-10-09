@@ -26,7 +26,9 @@ class Geometry extends Component {
         <div>
           <CardHeader>
             <Row>
-              <h5 className="card-category">Geometría</h5>
+              <Col>
+                <h5 className="card-category">Geometría</h5>
+              </Col>
             </Row>
 
             <Row>

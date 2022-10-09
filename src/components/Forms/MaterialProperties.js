@@ -29,13 +29,16 @@ class MaterialProperties extends Component {
         <div>
             <CardHeader>
               <Row>
+                <Col>
                 <h5 className="card-category">Propiedades de los materiales</h5>
+                </Col>
               </Row>
 
               <Row>
                 <Col>
                   <CardTitle tag="h3">Hormigón</CardTitle>
                   <Row>
+                    <Col>
                     <label>
                       Resistencia Característica (MPa)
                       <Input
@@ -45,6 +48,7 @@ class MaterialProperties extends Component {
                         onChange={this.onInputchange}
                       />
                     </label>
+                    </Col>
                   </Row>
                 </Col>
                 <Col>

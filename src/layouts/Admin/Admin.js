@@ -91,20 +91,13 @@ function Admin(props) {
       }
     });
   };
-  const getBrandText = (path) => {
-    for (let i = 0; i < routes.length; i++) {
-      if (location.pathname.indexOf(routes[i].layout + routes[i].path) !== -1) {
-        return routes[i].name;
-      }
-    }
-    return "Brand";
-  };
+
   return (
     <BackgroundColorContext.Consumer>
       {({ color, changeColor }) => (
         <React.Fragment>
-          {/* <div className="wrapper"> */}
-            {/* <Sidebar
+          <div className="wrapper"> 
+            <Sidebar
               routes={routes}
               logo={{
                 outterLink: "https://www.creative-tim.com/",
@@ -112,19 +105,17 @@ function Admin(props) {
                 imgSrc: logo
               }}
               toggleSidebar={toggleSidebar}
-            /> */}
-            {/* <div className="main-panel" ref={mainPanelRef} data={color}> */}
-              {/* <AdminNavbar
-                brandText={getBrandText(location.pathname)}
+            />
+            <div className="main-panel" ref={mainPanelRef} data={color}>
+              <AdminNavbar
+                // brandText={getBrandText(location.pathname)}
                 toggleSidebar={toggleSidebar}
                 sidebarOpened={sidebarOpened}
-              /> */}
-              <Switch>
+              />
                 {getRoutes(routes)}
                 <Redirect from="*" to="/admin/dashboard" />
-              </Switch>
-            {/* </div> */}
-          {/* </div> */}
+            </div> 
+          </div>
         </React.Fragment>
       )}
     </BackgroundColorContext.Consumer>

@@ -25,52 +25,54 @@ class Loads extends Component {
     return (
         <div>
             <CardHeader>
-              <Row>
-                <h5 className="card-category">Cargas</h5>
-              </Row>
+              <Col>
+                <Row>
+                  <h5 className="card-category">Cargas</h5>
+                </Row>
 
-              <Row>
-                <Col>
-                  <CardTitle tag="h3">Peso propio</CardTitle>
-                  <Row>
-                    <label>
-                      Pforjado (kN/m2)
-                      <Input
-                        name="Pforjado"
-                        defaultValue={this.props.Pforjado}
-                        type="number"
-                        onChange={this.onInputchange}
-                      />
-                    </label>
-                  </Row>
-                </Col>
-                <Col>
-                  <CardTitle tag="h3">Cargas muertas</CardTitle>   
-                    <label>
-                      Pcm (kN/m2)
-                      <Input
-                        name="Pcm"
-                        defaultValue={this.props.Pcm}
-                        type="number"
-                        onChange={this.onInputchange}
-                      />
-                    </label>  
-                </Col>
-                <Col>
-                  <CardTitle tag="h3">Uso</CardTitle>
+                <Row>
+                  <Col>
+                    <CardTitle tag="h3">Peso propio</CardTitle>
                     <Row>
                       <label>
-                        Puso (kN/m2)
+                        Pforjado (kN/m2)
                         <Input
-                          name="Puso"
-                          defaultValue={this.props.Puso}
+                          name="Pforjado"
+                          defaultValue={this.props.Pforjado}
                           type="number"
                           onChange={this.onInputchange}
                         />
                       </label>
-                    </Row>                   
-                </Col>
-              </Row>
+                    </Row>
+                  </Col>
+                  <Col>
+                    <CardTitle tag="h3">Cargas muertas</CardTitle>   
+                      <label>
+                        Pcm (kN/m2)
+                        <Input
+                          name="Pcm"
+                          defaultValue={this.props.Pcm}
+                          type="number"
+                          onChange={this.onInputchange}
+                        />
+                      </label>  
+                  </Col>
+                  <Col>
+                    <CardTitle tag="h3">Uso</CardTitle>
+                      <Row>
+                        <label>
+                          Puso (kN/m2)
+                          <Input
+                            name="Puso"
+                            defaultValue={this.props.Puso}
+                            type="number"
+                            onChange={this.onInputchange}
+                          />
+                        </label>
+                      </Row>                   
+                  </Col>
+                </Row>
+              </Col>
             </CardHeader>  
         </div>
     );
